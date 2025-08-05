@@ -166,7 +166,7 @@ export class ChatSocketService {
       } catch (error) {
         console.error('Error sending funny message:', error);
       }
-    }, 120000);
+    }, 300000);
   }
 
   async close(): Promise<void> {
