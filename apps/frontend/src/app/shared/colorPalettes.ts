@@ -1,0 +1,22 @@
+export const colorPalettes = [
+  { primary: '#6f42c1', secondary: '#563d7c' },
+  { primary: '#e83e8c', secondary: '#d91a72' },
+  { primary: '#fd7e14', secondary: '#e55a00' },
+  { primary: '#20c997', secondary: '#17a085' },
+  { primary: '#6610f2', secondary: '#520dc2' },
+  { primary: '#dc3545', secondary: '#c82333' },
+  { primary: '#17a2b8', secondary: '#138496' },
+  { primary: '#28a745', secondary: '#1e7e34' },
+  { primary: '#ffc107', secondary: '#e0a800' },
+  { primary: '#6c757d', secondary: '#5a6268' },
+  { primary: '#ff6b6b', secondary: '#ee5a52' },
+  { primary: '#4ecdc4', secondary: '#45b7af' },
+  { primary: '#45b7d1', secondary: '#3a9bc1' },
+  { primary: '#96ceb4', secondary: '#85b8a3' },
+  { primary: '#ffeaa7', secondary: '#fdcb6e' },
+  { primary: '#dda0dd', secondary: '#da70d6' },
+  { primary: '#98d8c8', secondary: '#7fcdcd' },
+  { primary: '#f7dc6f', secondary: '#f4d03f' },
+  { primary: '#bb8fce', secondary: '#a569bd' },
+  { primary: '#85c1e9', secondary: '#5dade2' }
+];

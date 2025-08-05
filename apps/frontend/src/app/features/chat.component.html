@@ -1,0 +1,20 @@
+<app-user-onboarding-dialog (completed)="onNameCompleted($event)"></app-user-onboarding-dialog>
+
+<div class="chat-container">
+  <aside class="users-panel-container">
+    @if (users$ | async; as users) {
+      <app-users-panel [users]="users" [currentUserId]="currentUserId"></app-users-panel>
+    }
+  </aside>
+  <main class="messages-panel-container">
+    <div class="messages-content">
+      @if (messages$ | async; as messages) {
+        <app-messages-panel [messages]="messages" [currentUserId]="currentUserId"
+                            (messageUpdate)="onMessageUpdated($event)"></app-messages-panel>
+      }
+    </div>
+    <div class="input-section">
+      <app-input-bar (messageSend)="onMessageSend($event)"></app-input-bar>
+    </div>
+  </main>
+</div>

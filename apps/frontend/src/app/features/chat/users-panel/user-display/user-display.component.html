@@ -1,0 +1,21 @@
+<div class="user-display" [class]="'size-' + size">
+  <div class="user-avatar" [style.width.px]="avatarSize" [style.height.px]="avatarSize">
+    <div class="avatar-content" [ngStyle]="getUserAvatarStyle()">
+      <span class="avatar-icon">{{ getUserIcon() }}</span>
+    </div>
+    @if (showStatus) {
+      <div class="status-indicator" [class.online]="isOnline"></div>
+    }
+  </div>
+
+  @if (size !== 'small') {
+    <div class="user-info">
+      <div class="user-name">{{ user.name }}</div>
+      @if (showStatus) {
+        <div class="user-status">
+          {{ isOnline ? 'Online' : 'Offline' }}
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,38 @@
+<div class="input-bar">
+  <div class="input-container">
+    <div class="message-input-wrapper">
+      <textarea
+        [(ngModel)]="inputText"
+        (keydown)="onKeyPress($event)"
+        (input)="onInputChange()"
+        placeholder="Type your message..."
+        class="message-input"
+        [class.has-text]="inputText().length > 0"
+        rows="1"
+        maxlength="1000"
+        #messageTextarea>
+      </textarea>
+
+      @if (inputText().length > 800) {
+        <div class="character-counter">
+          {{ 1000 - inputText().length }}
+        </div>
+      }
+    </div>
+
+    <div class="action-buttons">
+      <button
+        (click)="onMessageSent()"
+        class="send-button"
+        [class.active]="inputText().trim().length > 0"
+        [disabled]="inputText().trim().length === 0"
+        type="button"
+        title="Send message">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="m22 2-7 20-4-9-9-4z" />
+          <path d="M22 2 11 13" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>

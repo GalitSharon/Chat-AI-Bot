@@ -1,0 +1,49 @@
+<aside>
+  <div class="users-panel">
+    @if (meUser) {
+      <div class="me-user-section">
+        <div class="me-user-header">
+          <h3 class="section-title">Me</h3>
+        </div>
+        <div class="me-user-display">
+          <app-user-display
+            [user]="meUser"
+            [isOnline]="true"
+            [size]="'large'"
+            [showStatus]="true">
+          </app-user-display>
+        </div>
+      </div>
+    }
+
+    @if (meUser && otherUsers.length > 0) {
+      <div class="divider"></div>
+    }
+
+    @if (otherUsers.length > 0) {
+      <div class="other-users-section">
+        <div class="other-users-header">
+          <h3 class="section-title">Other Users ({{ otherUsers.length }})</h3>
+        </div>
+        <div class="other-users-list">
+          @for (user of otherUsers; track user.id) {
+            <div class="user-item">
+              <app-user-display
+                [user]="user"
+                [isOnline]="false"
+                [size]="'medium'"
+                [showStatus]="false">
+              </app-user-display>
+            </div>
+          }
+        </div>
+      </div>
+    }
+
+    @if (!meUser && otherUsers.length === 0) {
+      <div class="empty-state">
+        <p>No users available</p>
+      </div>
+    }
+  </div>
+</aside>

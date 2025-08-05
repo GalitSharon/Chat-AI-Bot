@@ -1,0 +1,29 @@
+<dialog #dlg>
+  <div class="dialog-header">
+    <h3>Welcome to Chattitude! 👋</h3>
+    <p class="subtitle">Let's get you started with a personalized experience</p>
+  </div>
+
+  <div class="dialog-content">
+    <form (submit)="$event.preventDefault(); submit()">
+      <div class="input-group">
+        <label for="name">What should we call you?</label>
+        <input
+          id="name"
+          type="text"
+          [(ngModel)]="name"
+          name="name"
+          placeholder="Enter your name"
+          maxlength="50"
+          #nameInput
+        />
+      </div>
+
+      <div class="dialog-actions">
+        <button type="submit" class="primary" [disabled]="!name.trim()">
+          Get Started
+        </button>
+      </div>
+    </form>
+  </div>
+</dialog>

@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  height: 100vh;
+  overflow: hidden;
+}
+
+router-outlet + * {
+  display: block;
+  height: 100vh;
+  overflow: hidden;
+}
