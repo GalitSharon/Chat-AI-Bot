@@ -72,6 +72,7 @@ export class ChatSocketService {
 
     socket.emit('message:all', messages);
     socket.emit('user:all', users);
+    data.id = socket.id;
     socket.broadcast.emit('user:join', data);
   }
 
@@ -146,6 +147,11 @@ export class ChatSocketService {
   private startFunnyMessageTimer(): void {
     this.funnyMessageInterval = setInterval(async () => {
       try {
+        const messages = await this.messagesService.getAllMessages()
+        if (messages.slice(-1)[0].senderType === 'BOT') {
+          return;
+        }
+
         const funnyMessage = await this.botService.generateFunnyMessage();
         if (funnyMessage) {
           const botMessage = await this.messagesService.saveMessage({
@@ -160,7 +166,7 @@ export class ChatSocketService {
       } catch (error) {
         console.error('Error sending funny message:', error);
       }
-    }, 60000);
+    }, 120000);
   }
 
   async close(): Promise<void> {
